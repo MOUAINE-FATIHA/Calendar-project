@@ -12,3 +12,51 @@ body {
     min-height: 100vh;
     padding: 2rem;
 }
+
+.container-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 3rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #b8a4e8;
+    letter-spacing: 2px;
+}
+
+.view-buttons {
+    display: flex;
+    background-color: #7fddcc;
+    border-radius: 50px;
+    overflow: hidden;
+    padding: 4px;
+}
+
+.view-btn {
+    background-color: transparent;
+    color: #333;
+    border: none;
+    padding: 0.6rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.view-btn.active {
+    background-color: white;
+    color: #333;
+}
