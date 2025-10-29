@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url('/version3/images/background.png');
+    background-size: cover;       
+    background-position: center;   
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    padding: 2rem;
+}
