@@ -258,4 +258,16 @@ body {
             transition: background-color 0.2s;
             position: relative;
         }
-
+        .week-cell:hover:not(.weekend-cell) {
+            background-color: #e8f5f3;
+        }
+        .week-cell.today-cell {
+            background-color: #fffef0;
+        }
+        .week-cell.weekend-cell {
+            background-color: #f0f0f0;
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
