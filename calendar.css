@@ -241,3 +241,21 @@ body {
 .week-day-header.today-header {
     background-color: #fff9e6;
 }
+        .time-slot {
+            padding: 1rem;
+            background-color: white;
+            font-size: 0.9rem;
+            text-align: right;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .week-cell {
+            min-height: 70px;
+            background: white;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            position: relative;
+        }
+
