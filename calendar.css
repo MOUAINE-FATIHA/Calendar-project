@@ -107,3 +107,24 @@ body {
     justify-content: center;
     font-size: 1.2rem;
 }
+.nav-btn:hover {
+    background-color: #6ccfbd;
+}
+.right-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.search-container {
+            position: relative;
+}
+.search-input {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    background-color: #7fddcc;
+    width: 300px;
+    font-size: 1rem;
+    outline: none;
+    color: #333;
+}
