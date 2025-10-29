@@ -60,3 +60,50 @@ body {
     background-color: white;
     color: #333;
 }
+
+
+
+
+.main-section {
+    padding: 3rem;
+}
+
+.top-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.left-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.calendar-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-btn {
+    background-color: #7fddcc;
+    color: #333;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
