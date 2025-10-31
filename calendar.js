@@ -174,7 +174,7 @@ class Calendrier {
 
         if (confirm('Etes-vous sur de supprimer cette reservation ?')) {
             const dateKey = this.Date;
-            this.reservations[dateKey] = this.reservations[dateKey].filter(r => r.id !== this.Id);
+            this.reservations[dateKey] = this.reservations[dateKey].filter(reserv => reserv.id !== this.Id);
 
             if (this.reservations[dateKey].length === 0) {
                 delete this.reservations[dateKey];
