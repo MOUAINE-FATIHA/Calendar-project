@@ -1,156 +1,169 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendrier de Réservation - Le Gourmet</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="desciprtion" content="Organisation de calendrier avec des proprs reservations">
+    <title> Calendrier </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="calendar.css">
     <script src="calendar.js"></script>
 </head>
+
 <body>
-    <div class="container-main">
-        <div class="header-top">
-            <div class="logo">My calendar</div>
-            <div class="view-buttons">
-                <button class="view-btn active" data-view="month">Month</button>
-                <button class="view-btn" data-view="week">Week</button>
-                <button class="view-btn" data-view="day">Day</button>
+    <div class="myCalendar">
+        <header class="header">
+            <h1 class="logo">Ma calendrier</h1>
+            <div class="btns">
+                <button class="btn active" data-view="month">Mois</button>
+                <button class="btn" data-view="week">Semaine</button>
+                <button class="btn" data-view="day">Jours</button>
             </div>
-        </div>
+        </header>
 
-        <div class="main-section">
-            <div class="top-controls">
-                <div class="left-controls">
-                    <h1 class="calendar-title" id="calendarTitle">October 2025</h1>
-                    <div class="nav-buttons">
-                        <button class="nav-btn" id="btnPrev"><i class="fas fa-chevron-left"></i></button>
-                        <button class="nav-btn" id="btnNext"><i class="fas fa-chevron-right"></i></button>
-                    </div>
+        <section class="infos">
+            <div class="left">
+                <h1 id="date">October 2025</h1>
+                <div class="navigation">
+                    <button class="nav" id="precedente"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav" id="suivante"><i class="fas fa-chevron-right"></i></button>
                 </div>
-                <div class="right-controls">
-                    <div class="search-container">
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search events">
-                    </div>
-                    <button class="btn-search" id="btnSearch"><i class="fas fa-search"></i> Search</button>
-                    <button class="btn-add" id="btnAdd"><i class="fas fa-plus"></i> Add</button>
-                </div>
+            
             </div>
-            <div class="calendar-month" id="monthView">
-                <div class="day-header-cell">Sun</div>
-                <div class="day-header-cell">Mon</div>
-                <div class="day-header-cell">Tue</div>
-                <div class="day-header-cell">Wed</div>
-                <div class="day-header-cell">Thu</div>
-                <div class="day-header-cell">Fri</div>
-                <div class="day-header-cell">Sat</div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
-                <div class="day-cell"><div class="day-number"></div></div>
+            <div class="right">
+                <input type="text" id="search" placeholder="cherchez votre evenement">
+                <button id="recherche"><i class="fas fa-search"></i>Recherche</button>
+                <button id="ajout"><i class="fas fa-plus"></i>Ajout</button>
             </div>
-            <div class="calendar-week hidden" id="weekView">
-                <div class="time-header"></div>
-            </div>
-            <div class="calendar-day hidden" id="dayView">
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="reservationModal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="reservationModalLabel">Ajouter une reservation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="reservationForm">
-                        <input type="hidden" id="reservationId">
-                        <input type="hidden" id="reservationDate">
-                        
-                        <div class="mb-3">
-                            <label for="clientName" class="form-label">Nom du client <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="clientName" required>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="startTime" class="form-label">Heure de debut <span class="text-danger">*</span></label>
-                                <input type="time" class="form-control" id="startTime" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="endTime" class="form-label">Heure de fin <span class="text-danger">*</span></label>
-                                <input type="time" class="form-control" id="endTime" required>
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="numberOfPeople" class="form-label">Nombre de personnes <span class="text-danger">*</span></label>
-                            <input type="number" class="form-control" id="numberOfPeople" min="1" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="reservationType" class="form-label">Type de reservation <span class="text-danger">*</span></label>
-                            <select class="form-select" id="reservationType" required>
-                                <option value="">Selectionner un type</option>
-                                <option value="standard">Standard</option>
-                                <option value="vip">VIP</option>
-                                <option value="anniversaire">Anniversaire</option>
-                                <option value="groupe">Groupe</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="deleteBtn" style="display: none;">
-                        <i class="fas fa-trash"></i> Supprimer
-                    </button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary" id="saveReservation">
-                        <i class="fas fa-save"></i> Enregistrer
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+        </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+        <section class="mois">
+            <div class="title">
+                <div class="jrs">Dimanche</div>
+                <div class="jrs">Lundi</div>
+                <div class="jrs">Mardi</div>
+                <div class="jrs">Mercredi</div>
+                <div class="jrs">Jeudi</div>
+                <div class="jrs">Vendredi</div>
+                <div class="jrs">Samedi</div>
+                
+            </div>
+
+            <div class="jours">
+                <div class="jour"><div class="nb-Jour"></div></div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour"><div class="nb-Jour"></div></div>
+                <div class="jour"><div class="nb-Jour"></div></div>
+                <div class="jour">
+                    <div class="nb-Jour" class="day inactive"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour" class="day inactive"></div>
+                </div>
+
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour"><div class="nb-Jour"></div></div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour" class="day inactive"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour" class="day inactive"></div>
+                </div>
+
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour" class="day inactive"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour" class="day inactive"></div>
+                </div>
+
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour" class="day inactive"></div>
+                </div>
+                <div class="jour">
+                    <div class="nb-Jour" class="day inactive"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="overlay" id="overlay"></div> 
+    <section id="modal">
+        <h4>Veuillez ajouter une reservation</h4>
+        <form action="" method="post" id="reservationForm">
+            
+            <input type="hidden" id="reservationId">
+            <input type="hidden" id="reservationDate">
+            
+            <label for="Name">Le nom </label>
+            <input type="text" id="Name" required>
+            <div>
+                <label for="Heur-D">Heure de debut</label>
+                <input type="time" id="HeurD" required>
+                <label for="Heur-F">Heure de fin</label>
+                <input type="time" id="HeurF" required>
+            </div>
+            <label for="nb">Nombre de personnes</label>
+            <input type="number" id="nb" min="1" required>
+            <label class="select">Type de reservation</label>
+            <select id="select" required>
+                <option value="">Veuillez selectionner un type</option>
+                <option value="standard">Sur place</option>
+                <option value="anniversaire">Anniversaire</option>
+                <option value="vip">VIP</option>
+            </select>
+        </form>
+        <div class="crud">
+            <button id="add">Enregistrer</button>
+            <button id="deleteBtn" style="display: none;">Supprimer</button>
+            <button class="annuler">Annuler</button>
+        </div>
+    </section>
 </body>
 </html>
