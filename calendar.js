@@ -6,7 +6,6 @@ class Calendrier {
         this.Date = null;
         this.init();
     }
-
     init() {
         this.EventButtons();
         this.update();
@@ -21,12 +20,10 @@ class Calendrier {
         document.getElementById('add').addEventListener('click', () => this.save());
         document.getElementById('deleteBtn').addEventListener('click', () => this.delete());
     }
-
     navigate(direction) {
         this.currentDate.setMonth(this.currentDate.getMonth() + direction);
         this.update();
     }
-
     update() {
         this.updateTitle();
         this.affichage();
@@ -36,18 +33,15 @@ class Calendrier {
         const months = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'decembre'];
         document.getElementById('date').textContent = `${months[this.currentDate.getMonth()]} ${this.currentDate.getFullYear()}`;
     }
-
     affichage() {
         const annee = this.currentDate.getFullYear();
         const mois = this.currentDate.getMonth();
         const jourP = new Date(annee, mois, 1);
         const jourC = new Date(jourP);
         jourC.setDate(jourC.getDate() - jourP.getDay());
-
         const cas = document.querySelectorAll('.jour');
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-
         cas.forEach((cell, i) => {
             const currentDate = new Date(jourC);
             currentDate.setDate(jourC.getDate() + i);
@@ -92,7 +86,6 @@ class Calendrier {
     formatDateKey(date) {
         return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
     }
-
     openform(date = null) {
         this.Id = null;
         this.Date = date || this.formatDateKey(this.currentDate);
@@ -103,12 +96,10 @@ class Calendrier {
         document.getElementById('modal').classList.add('show');
         document.getElementById('overlay').classList.add('show');
     }
-
     exit() {
         document.getElementById('modal').classList.remove('show');
         document.getElementById('overlay').classList.remove('show');
     }
-
     edit(reservation, date) {
         this.Id = reservation.id;
         this.Date = date;
